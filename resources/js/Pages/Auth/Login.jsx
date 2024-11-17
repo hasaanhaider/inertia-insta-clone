@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Login = () => {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <h1 className="text-4xl font-bold text-blue-500">Welcome to Inertia.js with Tailwind CSS!</h1>
-        </div>
-  )
-}
+    return (
+        <section className="h-screen m-auto flex w-full bg-red">
+            <div className="w-[350px] m-auto border  border-gray-300 ">
+                <h1>Login</h1>
+            </div>
+        </section>
+    );
+};
 
-export default Login
+export default Login;
