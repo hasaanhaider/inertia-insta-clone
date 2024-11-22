@@ -1,13 +1,82 @@
 import Input from "../components/Input";
 
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import AuthFooter from "../components/AuthFooter";
+import { useForm } from "@inertiajs/react";
 
 const Register = () => {
+    const { data, setData, post, processing, errors } = useForm({
+        name: "",
+        email: "",
+        password: "",
+        username: "",
+    });
+    const [stateerrors, setErrors] = useState({});
+    const [isFormValid, setIsFormValid] = useState(false);
+
+    const validateField = (name, value) => {
+        let error = "";
+
+        switch (name) {
+            case "email":
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    error = "Invalid email format";
+                }
+                break;
+            case "password":
+                if (value.length < 8) {
+                    error = "Password must be at least 8 characters";
+                }
+                break;
+            case "name":
+                if (!value.trim() && value.trim() < 3) {
+                    error = "Name is required";
+                }
+                break;
+            case "username":
+                if (!value.trim() && value.trim() < 3) {
+                    error = "Username is required";
+                }
+                break;
+            default:
+                break;
+        }
+
+        setErrors((prev) => ({ ...prev, [name]: error }));
+
+        return error === "";
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // Final validation before submitting
+        const formValid = ["name", "email", "password", "username"].every(
+            (field) => validateField(field, data[field])
+        );
+
+        if (formValid) {
+            post("register-user");
+        }
+    };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setData(name, value);
+
+        // Validate the current field
+        validateField(name, value);
+
+        // Check if the form is valid
+        const allValid = ["name", "email", "password", "username"].every(
+            (field) => validateField(field, data[field])
+        );
+        setIsFormValid(allValid);
+    };
     return (
         <section className="h-screen m-auto  bg-red">
-            <div className="auth-form-register-card">
+            <form className="auth-form-register-card" onSubmit={handleSubmit}>
                 <h1 className="text-center font-semibold text-3xl">
                     Instagram
                 </h1>
@@ -29,26 +98,38 @@ const Register = () => {
                         placeholder="Phone number, username, or email"
                         type="email"
                         name="email"
+                        value={data.email}
+                        handleChange={handleChange}
                         id="email"
                     />
+                    {errors.email && <div className="text-red-500 text-[10px]">{errors.email}</div>}
                     <Input
                         placeholder="password"
                         type="password"
                         name="password"
+                        value={data.password}
+                        handleChange={handleChange}
                         id="password"
                     />
+                    {errors.password && <div className="text-red-500 text-[10px]">{errors.password}</div>}
                     <Input
                         placeholder="Full Name"
                         type="text"
-                        name="fullname"
-                        id="fullname"
+                        name="name"
+                        value={data.name}
+                        handleChange={handleChange}
+                        id="name"
                     />
+                    {errors.name && <div className="text-red-500 text-[10px]">{errors.name}</div>}
                     <Input
                         placeholder="Username"
                         type="text"
                         name="username"
+                        value={data.username}
+                        handleChange={handleChange}
                         id="username"
                     />
+                    {errors.username && <div className="text-red-500 text-[10px]">{errors.username}</div>}
                     <p className="text-[12px] text-center text-slate-500">
                         people who use our service may have uploaded your
                         contact information to Instagram.
@@ -58,13 +139,17 @@ const Register = () => {
                         and Cookie Policy.
                     </p>
 
-                    <button className="w-full bg-sky-400 rounded-md mt-3 p-1 text-white font-semibold">
+                    <button  disabled={!isFormValid || processing} className="w-full bg-sky-400 rounded-md mt-3 p-1 text-white font-semibold">
                         Log in
                     </button>
                 </div>
-            </div>
+            </form>
 
-           <AuthFooter link="/login" linkTitle="Log in" text="Have an account? " />
+            <AuthFooter
+                link="/login"
+                linkTitle="Log in"
+                text="Have an account? "
+            />
         </section>
     );
 };
