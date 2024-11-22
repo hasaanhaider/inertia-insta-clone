@@ -6,8 +6,12 @@
     @apply py-2 px-1 border text-sm bg-[#FAFAFA] border-gray-300 rounded-sm focus:outline-gray-300;
 }
 
-.auth-form-card {
+.auth-form-login-card {
     @apply max-w-[350px] mx-auto mt-5 border px-10 py-10 border-gray-300 flex flex-col gap-10;
+}
+.auth-form-register-card {
+    @apply max-w-[350px] mx-auto mt-5 border px-10 py-10 border-gray-300 flex flex-col gap-4;
+
 }
 
 .auth-form-card-bottom {

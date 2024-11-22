@@ -9,4 +9,5 @@ Route::get('/', function () {
 
 Route::controller(App\Http\Controllers\AuthController::class)->group(function () {
     Route::get('login', 'login')->name('login');
+    Route::get('/register', 'register')->name('register');
 });

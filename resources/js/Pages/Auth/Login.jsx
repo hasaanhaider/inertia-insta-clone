@@ -1,11 +1,12 @@
 import React from "react";
 import Input from "../components/Input";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa"; 
+import AuthFooter from "../components/AuthFooter";
 
 const Login = () => {
     return (
         <section className="h-screen m-auto  bg-red">
-            <div className="auth-form-card">
+            <div className="auth-form-login-card">
                 <h1 className="text-center font-semibold text-3xl">
                     Instagram
                 </h1>
@@ -42,9 +43,8 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className="auth-form-card-bottom text-center text-sm">
-                <p>Don't have an account? <a href="" className="text-sky-500 font-semibold">Sign up</a></p>
-            </div>
+            <AuthFooter link="/register" linkTitle="Sign up" text="Don't have an account?" />
+
         </section>
     );
 };
