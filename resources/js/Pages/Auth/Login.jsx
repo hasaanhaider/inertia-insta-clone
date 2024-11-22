@@ -1,10 +1,11 @@
 import React from "react";
 import Input from "../components/Input";
+import { FaFacebook } from "react-icons/fa";
 
 const Login = () => {
     return (
-        <section className="h-screen m-auto  w-full bg-red">
-            <div className="w-[350px] mx-auto mt-5 border px-10 py-10 border-gray-300 flex flex-col gap-10">
+        <section className="h-screen m-auto  bg-red">
+            <div className="auth-form-card">
                 <h1 className="text-center font-semibold text-3xl">
                     Instagram
                 </h1>
@@ -27,11 +28,22 @@ const Login = () => {
                     </button>
                     <div className="w-full flex items-center gap-5 justify-center mt-2">
                         <div className="flex-1 h-[1px] bg-gray-300"></div>
-                        <div className="font-small text-sm text-gray-500">OR</div>
+                        <div className="font-small text-sm text-gray-500">
+                            OR
+                        </div>
                         <div className="flex-1 h-[1px] bg-gray-300"></div>
                     </div>
+
+                    <a className="flex items-center justify-center gap-2 text-sky-500 font-semibold mt-5 text-sm">
+                        <FaFacebook className="" size={20} />
+                        <p>Log in with Facebook</p>
+                    </a>
+                    <p className="text-center mt-1 text-sm">Forgot password?</p>
                 </div>
-                
+            </div>
+
+            <div className="auth-form-card-bottom text-center text-sm">
+                <p>Don't have an account? <a href="" className="text-sky-500 font-semibold">Sign up</a></p>
             </div>
         </section>
     );
