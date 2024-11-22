@@ -31,4 +31,19 @@ class AuthController extends Controller
         $this->auth_service->register($request->all());
         return redirect()->route('login')->with('success', 'User created successfully');
     }
+
+    public function login_store(Request $request)
+    {
+        $this->auth_service->validationLogin($request);
+
+        $isLoggedIn = $this->auth_service->login_store($request); 
+
+        if ($isLoggedIn) {
+            return redirect()->route('home');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
 }
