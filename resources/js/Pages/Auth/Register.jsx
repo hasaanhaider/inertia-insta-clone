@@ -14,8 +14,6 @@ const Register = () => {
         password: "",
         username: "",
     });
-    const [stateerrors, setErrors] = useState({});
-    const [isFormValid, setIsFormValid] = useState(false);
 
     const validateField = (name, value) => {
         let error = "";
@@ -53,28 +51,12 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Final validation before submitting
-        const formValid = ["name", "email", "password", "username"].every(
-            (field) => validateField(field, data[field])
-        );
-
-        if (formValid) {
-            post("register-user");
-        }
+        post("register-user");
     };
     const handleChange = (e) => {
         const { name, value } = e.target;
 
         setData(name, value);
-
-        // Validate the current field
-        validateField(name, value);
-
-        // Check if the form is valid
-        const allValid = ["name", "email", "password", "username"].every(
-            (field) => validateField(field, data[field])
-        );
-        setIsFormValid(allValid);
     };
     return (
         <section className="h-screen m-auto  bg-red">
@@ -158,11 +140,11 @@ const Register = () => {
                     </p>
 
                     <button
-                        disabled={!isFormValid || processing}
+                        disabled={processing}
                         className="w-full bg-sky-400 rounded-md mt-3 p-1 text-center text-white font-semibold"
                     >
                         {processing ? (
-                            <BiLoader className="animate-spin" />
+                            <BiLoader className="animate-spin mx-auto" />
                         ) : (
                             "Sign Up"
                         )}

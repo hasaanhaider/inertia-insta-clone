@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\AuthService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
 class AuthController extends Controller
 {
-    public function login (){
+    protected $auth_service;
+    public function __construct(AuthService $auth_service)
+    {
+        $this->auth_service = $auth_service;
+    }
+    public function login()
+    {
         return Inertia::render('Auth/Login');
     }
 
@@ -18,21 +25,12 @@ class AuthController extends Controller
         return Inertia::render('Auth/Register');
     }
 
-    public function register_store(Request $request){
-        $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8',
-            'username' => 'required|unique:users|regex:/^[a-z0-9]+$/i|min:3',
-        ]);
+    public function register_store(Request $request)
+    {
+        $this->auth_service->validateRegistration($request);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'username' => $request->username,
-        ]);
+        $this->auth_service->register($request->all());
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'User created successfully');
     }
 }
