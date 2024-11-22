@@ -28,9 +28,7 @@ class AuthController extends Controller
     public function register_store(Request $request)
     {
         $this->auth_service->validateRegistration($request);
-
         $this->auth_service->register($request->all());
-
         return redirect()->route('login')->with('success', 'User created successfully');
     }
 }
