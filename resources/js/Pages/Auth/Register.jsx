@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import AuthFooter from "../components/AuthFooter";
 import { useForm } from "@inertiajs/react";
+import { Audio } from "react-loader-spinner";
+import { BiLoader } from "react-icons/bi";
 
 const Register = () => {
     const { data, setData, post, processing, errors } = useForm({
@@ -102,7 +104,11 @@ const Register = () => {
                         handleChange={handleChange}
                         id="email"
                     />
-                    {errors.email && <div className="text-red-500 text-[10px]">{errors.email}</div>}
+                    {errors.email && (
+                        <div className="text-red-500 text-[10px]">
+                            {errors.email}
+                        </div>
+                    )}
                     <Input
                         placeholder="password"
                         type="password"
@@ -111,7 +117,11 @@ const Register = () => {
                         handleChange={handleChange}
                         id="password"
                     />
-                    {errors.password && <div className="text-red-500 text-[10px]">{errors.password}</div>}
+                    {errors.password && (
+                        <div className="text-red-500 text-[10px]">
+                            {errors.password}
+                        </div>
+                    )}
                     <Input
                         placeholder="Full Name"
                         type="text"
@@ -120,7 +130,11 @@ const Register = () => {
                         handleChange={handleChange}
                         id="name"
                     />
-                    {errors.name && <div className="text-red-500 text-[10px]">{errors.name}</div>}
+                    {errors.name && (
+                        <div className="text-red-500 text-[10px]">
+                            {errors.name}
+                        </div>
+                    )}
                     <Input
                         placeholder="Username"
                         type="text"
@@ -129,7 +143,11 @@ const Register = () => {
                         handleChange={handleChange}
                         id="username"
                     />
-                    {errors.username && <div className="text-red-500 text-[10px]">{errors.username}</div>}
+                    {errors.username && (
+                        <div className="text-red-500 text-[10px]">
+                            {errors.username}
+                        </div>
+                    )}
                     <p className="text-[12px] text-center text-slate-500">
                         people who use our service may have uploaded your
                         contact information to Instagram.
@@ -139,8 +157,15 @@ const Register = () => {
                         and Cookie Policy.
                     </p>
 
-                    <button  disabled={!isFormValid || processing} className="w-full bg-sky-400 rounded-md mt-3 p-1 text-white font-semibold">
-                        Log in
+                    <button
+                        disabled={!isFormValid || processing}
+                        className="w-full bg-sky-400 rounded-md mt-3 p-1 text-center text-white font-semibold"
+                    >
+                        {processing ? (
+                            <BiLoader className="animate-spin" />
+                        ) : (
+                            "Sign Up"
+                        )}
                     </button>
                 </div>
             </form>
