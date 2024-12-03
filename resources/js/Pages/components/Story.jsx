@@ -6,7 +6,7 @@ const Story = ({ userName, profilePic, storyKey }) => {
             <div className="p-[2px] bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 rounded-full">
                 <div className="p-[2px] bg-white rounded-full">
                     <img
-                        className="w-12 h-12 rounded-full object-cover"
+                        className="w-16 h-16 rounded-full object-cover"
                         src={profilePic}
                         alt={userName}
                     />

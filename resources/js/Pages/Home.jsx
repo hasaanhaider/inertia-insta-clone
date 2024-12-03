@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Layout from "./Layout";
 import Story from "./components/Story";
+import Post from "./components/Post";
 
 const Home = () => {
     const sliderRef = useRef(null);
@@ -46,10 +47,10 @@ const Home = () => {
                 <div className="flex-1 max-w-[600px] mx-auto">
                     <div className="relative">
                         <div
-                            className="flex overflow-x-auto gap-1 snap-x scrollbar-hide"
+                            className="flex justify-center gap-3 py-4"
                             ref={sliderRef}
                         >
-                            {[...Array(10)].map((_, i) => (
+                            {[...Array(6)].map((_, i) => (
                                 <Story
                                     storyKey={i}
                                     userName={`user${i + 1}`}
@@ -103,6 +104,10 @@ const Home = () => {
                             </button>
                         )}
                     </div>
+
+                    <Post />
+                    <Post />
+                    <Post />
                 </div>
                 <div>Right Side</div>
             </div>
