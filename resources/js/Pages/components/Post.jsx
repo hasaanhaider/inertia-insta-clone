@@ -8,7 +8,7 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 
 const Post = () => {
     return (
-        <div className="flex flex-col gap-3 mt-3 mx-auto max-w-[450px] py-3 border-b border-gray-600">
+        <div className="flex flex-col gap-3 mt-3 mx-auto max-w-[450px] py-3 border-b border-gray-200">
             <div className="flex justify-between items-center">
                 <div className="flex flex-row gap-2 items-center">
                     <img
