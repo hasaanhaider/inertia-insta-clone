@@ -40,7 +40,7 @@ const Sidebar = () => {
                 aria-label="Sidebar"
             >
                 <div className="h-full px-3 py-4 overflow-y-auto border-r-2  dark:bg-gray-800">
-                    <ul className="space-y-3 font-medium">
+                    <ul className="space-y-4 font-medium">
                         <li>
                             <a
                                 href="#"
@@ -56,9 +56,9 @@ const Sidebar = () => {
                                 aria-controls="dropdown-example"
                                 data-collapse-toggle="dropdown-example"
                             >
-                                <AiFillHome size={20} />
+                                <AiFillHome size={26} />
 
-                                <span className="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
+                                <span className="flex-1 text-lg ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Home
                                 </span>
                             </button>
@@ -68,8 +68,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <IoIosSearch size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <IoIosSearch size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Search
                                 </span>
                             </a>
@@ -79,8 +79,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <MdOutlineExplore size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <MdOutlineExplore size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Explore
                                 </span>
                             </a>
@@ -90,8 +90,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <PiMonitorPlay size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <PiMonitorPlay size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Reels
                                 </span>
                             </a>
@@ -101,8 +101,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <TbBrandMessenger size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <TbBrandMessenger size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Messages
                                 </span>
                             </a>
@@ -112,8 +112,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <CiHeart size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <CiHeart size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Notifications
                                 </span>
                             </a>
@@ -123,8 +123,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <CgAddR size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <CgAddR size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Create
                                 </span>
                             </a>
@@ -134,8 +134,8 @@ const Sidebar = () => {
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <CgProfile size={20} />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                <CgProfile size={26} />
+                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
                                     Profile
                                 </span>
                             </a>
@@ -149,9 +149,9 @@ const Sidebar = () => {
                                 aria-controls="dropdown-example"
                                 data-collapse-toggle="dropdown-example"
                             >
-                                <VscThreeBars size={20} />
+                                <VscThreeBars size={26} />
 
-                                <span className="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
+                                <span className="flex-1 text-lg ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Setting
                                 </span>
                             </button>
