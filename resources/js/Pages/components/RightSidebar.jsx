@@ -1,6 +1,6 @@
 import React from "react";
 
-const RightSideBar = () => {
+const RightSideBar = ({ user }) => {
     return (
         <div className="py-3 mt-3 w-full">
             <div className="flex justify-between">
@@ -11,9 +11,11 @@ const RightSideBar = () => {
                         alt="profile pic"
                     />
                     <span className="flex  flex-col justify-start items-start">
-                        <span className="text-sm font-semibold">username</span>
+                        <span className="text-sm font-semibold">
+                            {user.username}
+                        </span>
                         <span className="text-md font-light text-gray-700">
-                            name
+                            {user.name}
                         </span>
                     </span>
                 </div>
