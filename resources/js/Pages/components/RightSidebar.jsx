@@ -1,5 +1,6 @@
 import React from "react";
 import Suggestion from "./Suggestion";
+import { Link } from "@inertiajs/react";
 
 const RightSideBar = ({ user }) => {
     const suggestions = [
@@ -12,7 +13,7 @@ const RightSideBar = ({ user }) => {
     return (
         <div className="py-3 mt-3 w-full">
             <div className="flex justify-between">
-                <div className="flex items-center justify-between gap-2">
+                <Link href={`/profile/${user.username}`} className="flex items-center justify-between gap-2">
                     <img
                         src="https://picsum.photos/200?random=99"
                         className="h-10 w-10 rounded-full"
@@ -26,7 +27,7 @@ const RightSideBar = ({ user }) => {
                             {user.name}
                         </span>
                     </span>
-                </div>
+                </Link>
                 <div>Logout</div>
             </div>
             <div className="mt-4">

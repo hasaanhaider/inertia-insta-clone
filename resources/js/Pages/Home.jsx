@@ -8,13 +8,12 @@ import { usePage } from '@inertiajs/react';
 
 const Home = () => {
 
-    const {user} = usePage().props;
-    console.log(user)
+    const {user} = usePage().props; 
  
     return (
         <Layout>
             <div className="flex gap-3 justify-center">
-                <div className=" max-w-[800px]">
+                <div className=" max-w-full md:max-w-[850px]">
                     <div className="relative">
                         <div
                             className="flex justify-center max-w-[600px] mx-auto gap-3 py-4 overflow-auto no-scrollbar"
@@ -38,7 +37,7 @@ const Home = () => {
                     <Post />
                     <Post />
                 </div>
-                <div className="flex-1 max-w-[300px] pl-[64px]">
+                <div className="flex-1 hidden md:block  max-w-[350px] pl-[64px]">
                     <RightSideBar user={user} />
                 </div>
             </div>

@@ -36,12 +36,12 @@ const Sidebar = () => {
             </button>
             <aside
                 id="sidebar-multi-level-sidebar relative z-40"
-                className="sticky top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+                className="sticky top-0 left-0 z-40   h-screen transition-transform -translate-x-full sm:translate-x-0"
                 aria-label="Sidebar"
             >
                 <div className="h-full px-3 py-4 overflow-y-auto border-r-2  dark:bg-gray-800">
                     <ul className="space-y-4 font-medium">
-                        <li>
+                        <li className="md:block hidden">
                             <a
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
@@ -58,7 +58,7 @@ const Sidebar = () => {
                             >
                                 <AiFillHome size={26} />
 
-                                <span className="flex-1 text-lg ms-3 text-left rtl:text-right whitespace-nowrap">
+                                <span className="flex-1 hidden md:block text-lg ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Home
                                 </span>
                             </button>
@@ -69,7 +69,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <IoIosSearch size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Search
                                 </span>
                             </a>
@@ -80,7 +80,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <MdOutlineExplore size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Explore
                                 </span>
                             </a>
@@ -91,7 +91,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <PiMonitorPlay size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Reels
                                 </span>
                             </a>
@@ -102,7 +102,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <TbBrandMessenger size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Messages
                                 </span>
                             </a>
@@ -113,7 +113,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <CiHeart size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Notifications
                                 </span>
                             </a>
@@ -124,7 +124,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <CgAddR size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Create
                                 </span>
                             </a>
@@ -135,7 +135,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <CgProfile size={26} />
-                                <span className="flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Profile
                                 </span>
                             </a>
@@ -151,7 +151,7 @@ const Sidebar = () => {
                             >
                                 <VscThreeBars size={26} />
 
-                                <span className="flex-1 text-lg ms-3 text-left rtl:text-right whitespace-nowrap">
+                                <span className="flex-1 md:block hidden text-lg ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Setting
                                 </span>
                             </button>

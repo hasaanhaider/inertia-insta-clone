@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,4 +18,16 @@ Route::controller(App\Http\Controllers\AuthController::class)->group(function ()
     });
 });
 
-Route::get('/',[ HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/',  'index')->name('home');
+    });
+
+    Route::controller(ProfileController::class)->group(function () {
+        Route::prefix('profile')->group(function () {
+            Route::get('/{username}', 'index')->name('profile');
+        });
+    });
+});
