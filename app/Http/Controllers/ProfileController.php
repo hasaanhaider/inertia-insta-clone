@@ -8,15 +8,25 @@ use Inertia\Inertia;
 
 class ProfileController extends Controller
 {
-    public function index($username)
+    public function index($username, $type = null)
     {
-        // Fetch the user by username
         $user = User::where('username', $username)->first();
-
-        // Render the 'Profile/Profile' Inertia component and pass the user data
-        return Inertia::render('Profile/Profile', [
-            'user' => $user, // Pass user data as props to the component
-        ]);
+        if ($type == 'reels') {
+            return Inertia::render('Profile/Reels', [
+                'user' => $user,
+            ]);
+        } else if ($type == 'saved') {
+            return Inertia::render('Profile/Saved', [
+                'user' => $user,
+            ]);
+        } else if ($type == 'tagged') {
+            return Inertia::render('Profile/Tagged', [
+                'user' => $user,
+            ]);
+        } else {
+            return Inertia::render('Profile/Posts', [
+                'user' => $user,
+            ]);
+        }
     }
 }
-
