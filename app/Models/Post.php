@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-   protected $fillable = [
+    protected $fillable = [
         'user_id',
         'post_image',
         'post_description',
-    ];  
+    ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -13,16 +13,17 @@ class PostController extends Controller
         $request->validate([
             'post_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-    
+
         $post_image = $request->file('post_image');
         $path = $post_image->store('post_images', 'public');
-    
+        $fullUrl = url('storage/' . $path);
+
         $post = Post::create([
             'user_id' => auth()->user()->id,
-            'post_image' => $path,
+            'post_image' => $fullUrl,
             'post_description' => $request->post_description
         ]);
-    
+
         return back()->with('success', 'Post created successfully.');
     }
     

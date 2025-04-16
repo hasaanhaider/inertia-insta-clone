@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "./Layout";
 import Story from "./components/Story";
 import Post from "./components/Post";
 import RightSideBar from "./components/rightSidebar";
 import { usePage } from '@inertiajs/react';
+import axios from "axios";
 
 
 const Home = () => {
 
-    const {user} = usePage().props; 
- 
+    const {user, posts} = usePage().props; 
+
+    console.log(posts);
+    
     return (
         <Layout>
             <div className="flex gap-3 justify-center">
@@ -33,9 +36,12 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <Post />
-                    <Post />
-                    <Post />
+                    {
+                        posts.map((post) => (
+                            <Post Post={post} />
+                        ))
+                    }
+                    
                 </div>
                 <div className="flex-1 hidden md:block  max-w-[350px] pl-[64px]">
                     <RightSideBar user={user} />
