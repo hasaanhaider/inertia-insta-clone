@@ -30,4 +30,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/{username}/{type?}', 'index')->name('profile');
         });
     });
+
+
+
+    Route::controller(App\Http\Controllers\PostController::class)->group(function () {
+        Route::prefix('post')->group(function () {
+            Route::post('/store', 'store')->name('post.store');
+        });
+    });
 });
