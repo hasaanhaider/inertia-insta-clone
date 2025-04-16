@@ -8,8 +8,11 @@ import { CiHeart } from "react-icons/ci";
 import { CgAddR } from "react-icons/cg";
 import { CgProfile } from "react-icons/cg";
 import { VscThreeBars } from "react-icons/vsc";
-
+import PopupModal from "./PopupModal";
+import { useState } from "react";
 const Sidebar = () => {
+    const [showPopup, setShowPopup] = useState(false);
+
     return (
         <>
             <button
@@ -124,7 +127,7 @@ const Sidebar = () => {
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <CgAddR size={26} />
-                                <span className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
+                                <span onClick={() => setShowPopup(true)} className="hidden md:block flex-1 text-lg ms-3 whitespace-nowrap">
                                     Create
                                 </span>
                             </a>
@@ -159,7 +162,7 @@ const Sidebar = () => {
                     </ul>
                 </div>
             </aside>
-            
+            {showPopup && <PopupModal onClose={() => setShowPopup(false)} />}
         </>
     );
 };
