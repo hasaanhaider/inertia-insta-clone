@@ -19,6 +19,7 @@ const Post = ({ Post }) => {
             onSuccess: () => {
                 setLiked(true);
                 setLikeCount(prev => prev + 1);
+                
             },
             onError: () => {
                 console.error("Something went wrong while liking the post");
@@ -37,7 +38,11 @@ const Post = ({ Post }) => {
                     />
                     <p className="font-semibold text-sm">{Post.user.username}</p>
                     <p className="text-gray-600 text-sm font-semibold">
-                        {Post.created_at}
+                        {new Intl.DateTimeFormat("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "2-digit",
+                        }).format(new Date(Post.created_at))}
                     </p>
                 </div>
                 <div>

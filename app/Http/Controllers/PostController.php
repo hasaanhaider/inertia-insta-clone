@@ -2,40 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Services\PostService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class PostController extends Controller
 {
+    protected $postService;
+
+    public function __construct(PostService $postService)
+    {
+        $this->postService = $postService;
+    }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'post_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $post_image = $request->file('post_image');
-        $path = $post_image->store('post_images', 'public');
-        $fullUrl = url('storage/' . $path);
-
-        $post = Post::create([
-            'user_id' => auth()->user()->id,
-            'post_image' => $fullUrl,
-            'post_description' => $request->post_description
-        ]);
-
-        return back()->with('success', 'Post created successfully.');
+        try {
+            $this->postService->store($request);
+            return back()->with('success', 'Post created successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong. Please try again.');
+        }
     }
 
-    public function like_post(Request $request, $id)
+    public function likePost(Request $request, $id)
     {
-        $post = Post::find($id);
-        $post->likes()->create([
-            'user_id' => auth()->user()->id,
-            'post_id' => $post->id
-        ]);
-        return Inertia::location(route('home'));
+        try {
+            $liked = $this->postService->likePost($request, $id);
+
+            if (!$liked) {
+                return back()->with('error', 'Post not found or already liked.');
+            }
+
+            return Inertia::location(route('home'));
+        } catch (\Exception $e) {
+            return back()->with('error', 'Something went wrong. Please try again.');
+        }
     }
-    
 }
